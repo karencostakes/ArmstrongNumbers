@@ -11,38 +11,21 @@ public class ArmstrongNumber {
 		// its digits
 		// are equal to number e.g. 371 is an Armstrong number because 3*3*3 +
 		// 7*7*7 + 1*1*1 = 371).
-		Scanner scan1 = new Scanner(System.in);
-		System.out.println("Please think of a number and we will find out if your number is an Armstrong number!");
-		int testNumber = scan1.nextInt();
-		int testNumberModified = testNumber;
-		int sum = 0;
-		String number = Integer.toString(testNumber);
-		int digits = number.toString().length();
-
-		int[] testNumberBrokenDown = new int[digits];
-
-		for (int i = 0; i < digits; i++) {
-
-			int testNumberDigitSeparate = testNumberModified % 10;
-			testNumberModified = testNumberModified / 10;
-			testNumberBrokenDown[i] = testNumberDigitSeparate;
-
-		}
-
-		for (int k = 0; k < digits; k++) {
-
-			sum += Math.pow(testNumberBrokenDown[k], digits);
-
-		}
-
-		if (sum == testNumber)
-
+		Scanner sc = new Scanner (System.in);
+		System.out.print("Enter a number");
+		int n = sc.nextInt();
+		int copy = n;
+		int sum=0;
+		while(copy!=0)
 		{
-			System.out.println("You got yourself an Armstrong number!");
-		} else {
-			System.out.println("This is not an Armstrong number!");
+			int d = copy % 10;
+			sum = sum + (int)Math.pow(d,3);
+			copy = copy / 10;
 		}
-
+		if(sum == n)
+			System.out.print("Armstrong Number");
+		else
+System.out.print("Not Armstrong Number");
 	}
 
 }
